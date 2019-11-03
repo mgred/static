@@ -11,11 +11,9 @@ jobs:
       matrix:
         os: [ubuntu-18.04]
     steps:
-      - name: Pandoc
-        run: |
-          curl -L -O https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
-          sudo tar xvzf ./pandoc-2.7.3-linux.tar.gz --strip-components 1 -C /usr/local/bin
-          pandoc --help
-
+      - name: Get Pandoc
+        run: curl -L -O https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
+      - name: Install Pandoc
+        run: sudo tar xvzf ./pandoc-2.7.3-linux.tar.gz --strip-components 1 -C /usr/local/bin
       - name: Debug
-        run: echo $RUNNER_TEMP $RUNNER_TOOL_CACHE $PATH;
+        run: pandoc --help
