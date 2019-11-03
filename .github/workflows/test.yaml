@@ -17,3 +17,5 @@ jobs:
         run: sudo tar xvzf ./pandoc-2.7.3-linux.tar.gz --strip-components 1 -C /usr/local/
       - name: Debug
         run: pandoc --help
+      - name: Environment
+        run: printenv
