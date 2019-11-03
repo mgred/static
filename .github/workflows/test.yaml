@@ -9,7 +9,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macOS-10.14, windows-latest, ubuntu-18.04]
+        os: [macOS-10.14, ubuntu-18.04]
     steps:
-      - name: Environment
-        run: printenv
+      - uses: mgred/pandoc-action@master
+      - name: Pandoc
+        run: pandoc --help
