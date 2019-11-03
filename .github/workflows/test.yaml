@@ -1,0 +1,15 @@
+name: Test
+
+on: [push]
+
+
+jobs:
+  debug:
+    name: Debug
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macOS-10.14, windows-latest, ubuntu-18.04]
+    steps:
+      - name: Debug
+        run: echo $RUNNER_TEMP $RUNNER_TOOL_CACHE;
